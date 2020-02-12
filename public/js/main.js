@@ -1,3 +1,6 @@
-angular.module("alurapic", [
- 'minhasDiretivas'
-]); //Criação de modulo
+angular.module('alurapic', 
+    [
+        'minhasDiretivas',
+        'ngAnimate'
+    ]
+);//Criação de modulo
