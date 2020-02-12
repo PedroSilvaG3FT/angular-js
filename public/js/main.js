@@ -1,6 +1,7 @@
 angular.module('alurapic', 
     [
+        'ngAnimate',
+        'ngRoute',
         'minhasDiretivas',
-        'ngAnimate'
     ]
 );//Criação de modulo
