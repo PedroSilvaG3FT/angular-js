@@ -11,5 +11,9 @@ angular
             templateUrl:'partials/principal.html',
             controller:'FotosController'
         });
+
+        $routeProvider.when('/fotos/new', {
+            templateUrl: 'partials/foto.html',
+        });
     })
-    ;
+    
