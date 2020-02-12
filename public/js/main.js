@@ -7,6 +7,8 @@ angular
         ]
     )
     .config(function ($routeProvider) {
+        $routeProvider.otherwise({redirectTo: '/fotos'});
+
         $routeProvider.when('/fotos', {
             templateUrl:'partials/principal.html',
             controller:'FotosController'
