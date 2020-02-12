@@ -8,7 +8,7 @@
             <label>Título</label>
             <input ng-model="foto.titulo" name="titulo" class="form-control" required>
 
-            <span class="form-control alert-danger" ng-show="formulario.titulo.$error.required"> 
+            <span class="form-control alert-danger" ng-show="formulario.$submitted && formulario.titulo.$error.required"> 
                 campo obrigatório
             </span>
         </div>
@@ -17,7 +17,7 @@
             <label>URL</label>
             <input ng-model="foto.url" name="url" class="form-control" required>
 
-            <span class="form-control alert-danger" ng-show="formulario.url.$error.required">
+            <span class="form-control alert-danger" ng-show="formulario.$submitted && formulario.url.$error.required">
                 campo obrigatório
             </span>
         </div>
@@ -26,7 +26,7 @@
             <label>Descrição</label>
             <textarea ng-model="foto.descricao" name="descricao" class="form-control" required></textarea>
 
-            <span class="form-control alert-danger" ng-show="formulario.descricao.$error.required">
+            <span class="form-control alert-danger" ng-show="formulario.$submitted && formulario.descricao.$error.required">
                 campo obrigatório
             </span>
         </div>
