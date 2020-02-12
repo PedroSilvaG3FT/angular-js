@@ -1,20 +1,16 @@
-angular.module('alurapic').controller("FotosController", function ($scope) {
+angular.module('alurapic').controller("FotosController", function ($scope, $http) {
 
     $scope.foto = {};
 
-    $scope.lstFotos = [{
-            title: 'Teste0',
-            url: 'https://lh3.googleusercontent.com/proxy/CDVnf8J2GJLtGY4UTc-LG1VTKGGJDv9QVAg9_7N3A-Jg7JjoTocYiaett6f8Sw9eIwcsnGIj5-3v4UBs8o98fG7ZFRom6Lht2YYVo7joltgL'
-        },
+    $scope.lstFotos = [];
 
-        {
-            title: 'Teste1',
-            url: 'https://lh3.googleusercontent.com/proxy/CDVnf8J2GJLtGY4UTc-LG1VTKGGJDv9QVAg9_7N3A-Jg7JjoTocYiaett6f8Sw9eIwcsnGIj5-3v4UBs8o98fG7ZFRom6Lht2YYVo7joltgL'
-        },
+    var promise = $http.get('v1/fotos');
 
-        {
-            title: 'Teste2',
-            url: 'https://lh3.googleusercontent.com/proxy/CDVnf8J2GJLtGY4UTc-LG1VTKGGJDv9QVAg9_7N3A-Jg7JjoTocYiaett6f8Sw9eIwcsnGIj5-3v4UBs8o98fG7ZFRom6Lht2YYVo7joltgL'
-        },
-    ]
+    promise
+        .then(function (retorno) {
+            $scope.lstFotos = retorno.data;
+        })
+        .catch(function (error) {
+            console.log("ERRO : ", error);
+        });
 });
