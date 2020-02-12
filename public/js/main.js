@@ -6,16 +6,17 @@ angular
             'minhasDiretivas',
         ]
     )
-    .config(function ($routeProvider) {
-        $routeProvider.otherwise({redirectTo: '/fotos'});
+    .config(function ($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
+        $routeProvider.otherwise({ redirectTo: '/fotos' });
+
 
         $routeProvider.when('/fotos', {
-            templateUrl:'partials/principal.html',
-            controller:'FotosController'
+            templateUrl: 'partials/principal.html',
+            controller: 'FotosController'
         });
 
         $routeProvider.when('/fotos/new', {
             templateUrl: 'partials/foto.html',
         });
     })
-    
