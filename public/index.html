@@ -19,19 +19,19 @@
             <h1 class="text-center">Alurapic</h1>
         </div>
 
-        <meu-painel ng-repeat="foto in lstFotos" titulo="{{foto.titulo}}"> 
-                <img src="{{foto.url}}" alt="imagem" class="img-responsive center-block">
-
-        </meu-painel>
-        <!-- <div class="panel panel-defaut" ng-repeat="foto in lstFotos">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{foto.titulo}}</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <form>
+                    <input class="form-control" placeholder="Filtrar" ng-model="filtro">
+                </form>
             </div>
+        </div>
 
-            <div class="panel-body">
+        <div class="row">
+            <meu-painel class="col-md-2" ng-repeat="foto in lstFotos | filter:filtro" titulo="{{foto.titulo}}">
                 <img src="{{foto.url}}" alt="imagem" class="img-responsive center-block">
-            </div>
-        </div> -->
+            </meu-painel>
+        </div>
 
     </div> <!-- fim container -->
 </body>
