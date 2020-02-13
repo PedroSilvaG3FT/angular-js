@@ -54,7 +54,10 @@ angular.module('minhasDiretivas', [])
         //LINK: PERMITE ACESSO AO SCOPE DA DIRETIVA E O ELEMENTO QUE ACIONOU | PERMITE COLOCAR ESCULTADORES DE PROPS
         ddo.link = function (scope, element) {
             scope.$watch('focado', function () {
-                if (scope.focado) element[0].focus();
+                if (scope.focado) {
+                    element[0].focus();
+                    scope.focado = false; //SETA O FOCADO DO CONTROLLER PARA FALSE
+                }
 
             });
         };
