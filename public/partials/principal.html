@@ -24,6 +24,7 @@
     <meu-painel class="col-md-2 painel-animado card m-2" ng-repeat="foto in lstFotos | filter:filtro" titulo="{{foto.titulo}}">
         <img src="{{foto.url}}" alt="imagem" class="img-responsive center-block">
         <a href="fotos/edit/{{foto._id}}" class="btn btn-primary btn-block">Editar</a>
-        <a href="" class="btn btn-danger btn-block" ng-click="remover(foto)">Remover</a>
+        <!-- <a href="" class="btn btn-danger btn-block" ng-click="remover(foto)">Remover</a> -->
+        <meu-botao-perigo nome="Remover" acao="remover(foto)"></meu-botao-perigo>
     </meu-painel>
 </div>

@@ -6,6 +6,6 @@ angular.module("alurapic").controller("GruposController", function($scope, $http
         $scope.grupos = grupos;
     })
     .error(function(erro) {
-        console.log("ERRO : ", erro)
-    })
+        console.log("ERRO : ", erro);
+    });
 });

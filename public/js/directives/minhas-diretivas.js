@@ -8,7 +8,7 @@ angular.module('minhasDiretivas', [])
         ddo.scope = {
             titulo: '@'
         };
-        
+
         //RECEBE ELEMENTOS FILHOS DE UMA DIRETIVA A PARTIR DA DIRETIVA ng-transclude
         ddo.transclude = true;
         ddo.templateUrl = 'js/directives/meu-painel.html';
@@ -28,6 +28,19 @@ angular.module('minhasDiretivas', [])
 
         ddo.template = '<img class="img-responsive center-block" src="{{url}}" alt="{{titulo}}">';
 
+        return ddo;
+    })
+    .directive("meuBotaoPerigo", function () {
+        var ddo = {};
+
+        ddo.restric = "E";
+
+        ddo.scope = {
+            nome: '@', //COPIPIA DE VALOR QUE É AVALIADO COMO STRING
+            acao: '&' //ULTILIZA-SE '&' PARA EXECUTAR UMA EXPRESSAO
+        };
+
+        ddo.template = '<button ng-click="acao(foto)"  class="btn btn-danger btn-block">{{nome}}</button> ';
         return ddo;
     })
     ;
