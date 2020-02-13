@@ -4,7 +4,6 @@ angular.module('alurapic').controller('FotoController', function ($scope, $http,
     $scope.mensagem = "";
 
     if ($routeParams.id) {
-
         $http.get('v1/fotos/' + $routeParams.id)
             .then(function (retorno) {
                 console.log("FOTO : ", retorno);
