@@ -3,6 +3,7 @@ angular
         [
             'ngAnimate',
             'ngRoute',
+            'ngResource',
             'minhasDiretivas',
         ]
     )

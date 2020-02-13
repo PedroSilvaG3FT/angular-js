@@ -1,16 +1,24 @@
-angular.module('alurapic').controller("FotosController", function ($scope, $http) {
+angular.module('alurapic').controller("FotosController", function ($scope, $http, $resource) {
 
     $scope.lstFotos = [];
     $scope.filtro = "";
     $scope.mensagem = "";
 
-    $http.get('v1/fotos')
-        .then(function (retorno) {
-            $scope.lstFotos = retorno.data;
-        })
-        .catch(function (error) {
-            console.log("ERRO : ", error);
-        });
+    var recursoFoto = $resource("v1/fotos/:fotoId");
+
+    recursoFoto.query(function(fotos) {
+        $scope.lstFotos = fotos;
+    }, function(erro) {
+        console.log("ERRO : ", erro);
+    });
+
+    // $http.get('v1/fotos')
+    //     .then(function (retorno) {
+    //         $scope.lstFotos = retorno.data;
+    //     })
+    //     .catch(function (error) {
+    //         console.log("ERRO : ", error);
+    //     });
 
     $scope.remover = function (foto) {
         console.log("ID REMOVER : ", foto);
