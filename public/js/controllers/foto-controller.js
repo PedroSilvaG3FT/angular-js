@@ -20,18 +20,34 @@ angular.module('alurapic').controller('FotoController', function ($scope, $http,
 
         if ($scope.formulario.$valid) {
 
-            $http.post('v1/fotos', $scope.foto)
-                .success(function () {
-                    $scope.foto = {};
-                    $scope.mensagem = "Foto incluida com sucesso";
-                    console.log("FOTO CADASTRADA");
-                })
-                .error(function () {
-                    $scope.mensagem = "Não foi possível incluir a foto";
+            if ($scope.foto._id) {
+                $http.put('v1/fotos/' + $scope.foto._id, $scope.foto)
+                    .success(function () {
+                        $scope.foto = {};
+                        $scope.mensagem = "Foto alterada com sucesso";
+                        console.log("FOTO CADASTRADA");
+                    })
+                    .error(function () {
+                        $scope.mensagem = "Não foi possível incluir a foto";
 
-                    console.log("ERRO : ", error);
-                });
+                        console.log("ERRO : ", error);
+                    });
+            } else {
+
+                $http.post('v1/fotos', $scope.foto)
+                    .success(function () {
+                        $scope.foto = {};
+                        $scope.mensagem = "Foto incluida com sucesso";
+                        console.log("FOTO CADASTRADA");
+                    })
+                    .error(function () {
+                        $scope.mensagem = "Não foi possível incluir a foto";
+
+                        console.log("ERRO : ", error);
+                    });
+            }
         }
+
     };
 
 });
