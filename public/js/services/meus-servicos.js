@@ -18,7 +18,7 @@ angular.module("meusServicos", ['ngResource',])
                 if (foto._id) {
 
                     recursoFoto.update({ fotoId: foto._id }, foto, function () {
-                        $rootScope.broadcast("fotoCadastrada");
+                        $rootScope.$broadcast("fotoCadastrada");
                         resolve({
                             mensagem: 'Foto ' + foto.titulo + ' atualizada com sucesso!',
                             inclusao: false
@@ -31,7 +31,7 @@ angular.module("meusServicos", ['ngResource',])
                 } else {
 
                     recursoFoto.save(foto, function () {
-                        $rootScope.broadcast("fotoCadastrada");
+                        $rootScope.$broadcast("fotoCadastrada");
                         resolve({
                             mensagem: 'Foto ' + foto.titulo + ' incluída com sucesso!',
                             inclusao: true
