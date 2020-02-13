@@ -31,17 +31,7 @@ angular.module('alurapic').controller('FotoController', function ($scope, $http,
                 }, function (erro) {
                     $scope.mensagem = "Não foi possivel alterar";
                 });
-                // $http.put('v1/fotos/' + $scope.foto._id, $scope.foto)
-                //     .success(function () {
-                //         $scope.foto = {};
-                //         $scope.mensagem = "Foto alterada com sucesso";
-                //         console.log("FOTO CADASTRADA");
-                //     })
-                //     .error(function () {
-                //         $scope.mensagem = "Não foi possível incluir a foto";
-
-                //         console.log("ERRO : ", error);
-                //     });
+           
             } else {
                 recursoFoto.save($scope.foto, function () {
                     $scope.mensagem = "Foto incluida com sucesso";
@@ -50,17 +40,6 @@ angular.module('alurapic').controller('FotoController', function ($scope, $http,
                     $scope.mensagem = "Não foi possivel Incluir";
                 });
 
-                // $http.post('v1/fotos', $scope.foto)
-                //     .success(function () {
-                //         $scope.foto = {};
-                //         $scope.mensagem = "Foto incluida com sucesso";
-                //         console.log("FOTO CADASTRADA");
-                //     })
-                //     .error(function () {
-                //         $scope.mensagem = "Não foi possível incluir a foto";
-
-                //         console.log("ERRO : ", error);
-                //     });
             }
         }
 
