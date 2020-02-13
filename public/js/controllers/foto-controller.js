@@ -1,19 +1,13 @@
 
-angular.module('alurapic').controller('FotoController', function ($scope, $http, $routeParams, $resource) {
+angular.module('alurapic').controller('FotoController', function ($scope, $http, $routeParams, recursoFoto) {
     $scope.foto = {};
     $scope.mensagem = "";
 
-    var recursoFoto = $resource('/v1/fotos/:id', null, {
-        update: {
-            method: "PUT"
-        }
-    });
-
-    if ($routeParams.id) {
-        $http.get('v1/fotos/' + $routeParams.id)
+    if ($routeParams.fotoId) {
+        $http.get('v1/fotos/' + $routeParams.fotoId)
             .then(function (retorno) {
-                console.log("FOTO : ", retorno);
                 $scope.foto = retorno.data;
+                console.log("FOTO : ", $scope.foto);
             })
             .catch(function (error) {
                 console.log("ERRO : ", error);
@@ -21,18 +15,20 @@ angular.module('alurapic').controller('FotoController', function ($scope, $http,
     }
 
     $scope.submeter = function () {
-        console.log("CADASTRO", $scope.foto);
-
+        
         if ($scope.formulario.$valid) {
-
+            
             if ($scope.foto._id) {
-                recursoFoto.update({ id: $scope.foto._fotoId }, $scope.foto, function () {
+                console.log("EDITA", $scope.foto);
+
+                recursoFoto.update({ fotoId: $scope.foto._id }, $scope.foto, function () {
                     $scope.mensagem = "Foto alterada com sucesso";
                 }, function (erro) {
                     $scope.mensagem = "Não foi possivel alterar";
                 });
-           
+                
             } else {
+                console.log("CADASTRO", $scope.foto);
                 recursoFoto.save($scope.foto, function () {
                     $scope.mensagem = "Foto incluida com sucesso";
 

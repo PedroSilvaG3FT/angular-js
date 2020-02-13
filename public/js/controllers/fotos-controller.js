@@ -1,10 +1,8 @@
-angular.module('alurapic').controller("FotosController", function ($scope, $http, $resource) {
+angular.module('alurapic').controller("FotosController", function ($scope, recursoFoto) {
 
     $scope.lstFotos = [];
     $scope.filtro = "";
     $scope.mensagem = "";
-
-    var recursoFoto = $resource("v1/fotos/:fotoId");
 
     recursoFoto.query(function(fotos) {
         $scope.lstFotos = fotos;
@@ -15,7 +13,7 @@ angular.module('alurapic').controller("FotosController", function ($scope, $http
     $scope.remover = function (foto) {
         console.log("ID REMOVER : ", foto);
 
-        recursoFoto.delete({id: foto._id}, function() {
+        recursoFoto.delete({ fotoId: foto._id}, function() {
             var indiceFoto = $scope.lstFotos.indexOf(foto);
 
             $scope.lstFotos.splice(indiceFoto, 1);

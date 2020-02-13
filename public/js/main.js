@@ -3,8 +3,8 @@ angular
         [
             'ngAnimate',
             'ngRoute',
-            'ngResource',
             'minhasDiretivas',
+            'meusServicos',
         ]
     )
     .config(function ($routeProvider, $locationProvider) {
@@ -22,7 +22,7 @@ angular
             controller: 'FotoController'
         });
 
-        $routeProvider.when('/fotos/edit/:id', {
+        $routeProvider.when('/fotos/edit/:fotoId', {
             templateUrl: 'partials/foto.html',
             controller: 'FotoController'
         });
