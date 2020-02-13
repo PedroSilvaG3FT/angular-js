@@ -36,11 +36,29 @@ angular.module('minhasDiretivas', [])
         ddo.restric = "E";
 
         ddo.scope = {
-            nome: '@', //COPIPIA DE VALOR QUE É AVALIADO COMO STRING
+            nome: '@', //COPIA DE VALOR QUE É AVALIADO COMO STRING
             acao: '&' //ULTILIZA-SE '&' PARA EXECUTAR UMA EXPRESSAO
         };
 
         ddo.template = '<button ng-click="acao(foto)"  class="btn btn-danger btn-block">{{nome}}</button> ';
+        return ddo;
+    })
+    .directive("meuFocus", function () {
+        var ddo = {};
+
+        ddo.restric = "A";
+        ddo.scope = {
+            focado: '=', // =: PERMITE UMA COMUNICAÇÃO BIDIMENSIONAL DE CONTROLLER COM DIRETIVA P/ CONTROLAR A MESMA PROP
+        };
+
+        //LINK: PERMITE ACESSO AO SCOPE DA DIRETIVA E O ELEMENTO QUE ACIONOU | PERMITE COLOCAR ESCULTADORES DE PROPS
+        ddo.link = function (scope, element) {
+            scope.$watch('focado', function () {
+                if (scope.focado) element[0].focus();
+
+            });
+        };
+
         return ddo;
     })
     ;

@@ -15,7 +15,7 @@ angular.module('alurapic').controller('FotoController', function ($scope, $http,
     }
 
     $scope.submeter = function () {
-        
+
         if ($scope.formulario.$valid) {
 
             cadastroDeFotos.cadastrar($scope.foto)
@@ -23,6 +23,7 @@ angular.module('alurapic').controller('FotoController', function ($scope, $http,
                     $scope.mensagem = dados.mensagem;
                     // limpa o formulário se for inclusão
                     if ($scope.inclusao) $scope.foto = {};
+                    $scope.focado = true;
                 })
                 .catch(function (dados) {
                     $scope.mensagem = dados.mensagem;
