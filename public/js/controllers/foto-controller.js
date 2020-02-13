@@ -27,26 +27,6 @@ angular.module('alurapic').controller('FotoController', function ($scope, $http,
                 .catch(function (dados) {
                     $scope.mensagem = dados.mensagem;
                 });
-
-            // if ($scope.foto._id) {
-            //     console.log("EDITA", $scope.foto);
-
-            //     recursoFoto.update({ fotoId: $scope.foto._id }, $scope.foto, function () {
-            //         $scope.mensagem = "Foto alterada com sucesso";
-            //     }, function (erro) {
-            //         $scope.mensagem = "Não foi possivel alterar";
-            //     });
-                
-            // } else {
-            //     console.log("CADASTRO", $scope.foto);
-            //     recursoFoto.save($scope.foto, function () {
-            //         $scope.mensagem = "Foto incluida com sucesso";
-
-            //     }, function (erro) {
-            //         $scope.mensagem = "Não foi possivel Incluir";
-            //     });
-
-            // }
         }
 
     };
